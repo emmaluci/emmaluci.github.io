@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p>Denver Broncos fans are already looking forward to the 2023 season. Dedicated fans were caught blindly optimistic after the five-year contract binding Russell Wilson to the 2021 team last march was able to fill the team’s quarterback position. Yet, after signing Wilson under a&nbsp; hefty $245 million, it seems there aren’t any easy solutions for the franchise following his rocky start.&nbsp;&nbsp;</p>
-<p>The recent addition of head coach Sean Payton is certain to stir up a new found hope once again in the city of Denver and for fans across the country. Though the off season is the perfect time to project the future for the franchise, it is also the most important time to reflect on the past dreadful seasons. Not only did the team struggle tremendously last season, but they had reportedly the worst-scoring offense, averaging at just 16.9 points for each game they played. The injury of back left tackle Garret Boles left a huge dent in their offensive line. Denver was alos one of the worst sack rate teams in the NFL this last season ranking at 30th overall among teams. Many fans pointed fingers at Russell Wilson, as he was ranked 25th statistically out of 32 quarterbacks with at least 300 drop backs and a completion percentage that was surprisingly above the anticipated -1.1 percent. The broncos have been unsuccessful with filling the quarterback position comfortably since the loss of Peyton Manning after the team’s Superbowl winning 2015 season.&nbsp;</p>
+<p>The recent addition of head coach Sean Payton is certain to stir up a new found hope once again in the city of Denver and for fans across the country. Though the off season is the perfect time to project the future for the franchise, it is also the most important time to reflect on the past dreadful seasons. Not only did the team struggle tremendously last season, but they had reportedly the worst-scoring offense, averaging at just 16.9 points for each game they played. The injury of back left tackle Garret Boles left a huge dent in their offensive line. Denver was also one of the worst sack rate teams in the NFL this last season ranking in at 30th overall among teams. Many fans pointed fingers at Russell Wilson, as he was ranked 25th statistically out of 32 quarterbacks with at least 300 drop backs and a completion percentage that was surprisingly above the anticipated -1.1 percent. The broncos have been unsuccessful with filling the quarterback position comfortably since the loss of Peyton Manning after the team’s Superbowl winning 2015 season.</p>
 <p><br>
 <br>
 <br>
@@ -246,42 +246,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Tm <span class="sc">!=</span> <span class="st">"Avg Team"</span>)</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#worst 50 scoring teams over last decade in bar chart</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>worst50 <span class="ot">&lt;-</span> scoring <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">50</span>, <span class="at">wt=</span> <span class="sc">-</span>PF) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(PF))</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>worstbroncos<span class="ot">&lt;-</span>worst50 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span><span class="st">"Denver Broncos"</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">#bar chart of worst 50 scoring teams over last decade</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>worst50,</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF),</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"light grey"</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span> </span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>worstbroncos,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>     <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF),</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"#FB4F14"</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Are the Broncos the worst offensive scoring team?"</span>, </span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Denver thought this could be the return of the Mile High Magic"</span>,</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">""</span>, </span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Points Scored"</span>) <span class="sc">+</span> </span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>worst40 <span class="ot">&lt;-</span> scoring <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">40</span>, <span class="at">wt=</span> <span class="sc">-</span>PF) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill_color =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      Tm <span class="sc">==</span> <span class="st">"Denver Broncos"</span> <span class="sc">~</span> <span class="st">"1"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"2"</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>worst40, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF, <span class="at">fill=</span>fill_color))<span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"#FB4F14"</span>, <span class="st">"light grey"</span>)) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Of the 40 worst scoring teams in the league since 2012, where is Denver? "</span>, </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The Broncos barely show up, but we do see them"</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">""</span>, </span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Points Scored"</span>) <span class="sc">+</span> </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>   <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>),</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The Denver Broncos have not had the best luck over the last couple of years when it comes to winning games, or with performance quality. But as a dedicated fan for as long as I can remember, it interested me to look at exact numbers to prove some of these interesting rumors and questions regarding the team’s success to be revealed as true or not. The main thing I wanted to look at overall, was the offensive tragedy of the team over the last couple of seasons. To see where the Broncos have stood in comparison to other teams, I collected information of the 50 worst-scoring NFL teams over the last decade.&nbsp;</p>
+<p>The Denver Broncos have not had the best luck over the last couple of years when it comes to winning games, or with their overall performance quality. But as dedicated fans would love to have their questions answered, it interesting to look at exact numbers to prove some of these interesting rumors and questions regarding the team’s success to be revealed as true or not. The main thing I wanted to look at overall, was the offensive tragedy of the team over the last couple of seasons. To see where the Broncos have stood in comparison to other teams, we can see the story though information of the 40 worst-scoring NFL teams over the last decade.&nbsp;</p>
 <p><br>
 </p>
 <div class="cell">
@@ -333,9 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>I wondered how the Broncos would align when compared to the rest of the league when being ranked by conference, so I looked at the scoring percentages of all of the AFC teams in the NFL. I had heard and seen a lot of opinions on Denver after their terrifying season opener game, and it made me want to know if my team was really falling to pieces.&nbsp;</p>
-<p><br>
-</p>
+<p>I wondered how the Broncos would align when compared to the rest of the league when being ranked by conference, so I looked at the scoring percentages of all of the AFC teams in the NFL. There has been a lot of tweets and news all over about Denver after their terrifying season opener game, and it made me want to know if my team was really falling to pieces as they seemed.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -366,10 +362,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>As a Broncos fan, there is and always has been a deep burning hatred for the Kansas City Chiefs that runs through my bloodstream. With that being said, it utterly pains me to see the visual of the absolute downfall of my favorite football team. I assumed this huge drop-off had something to do with the painful loss of Peyton Manning after we won the 2015 Superbowl.&nbsp;</p>
-<p>After investigating my curiosity on the awful past performances of my favorite team of all time, I was slightly surprised to find out I was wrong when I had originally thought that this past season had to be the “historically worst” season for the franchise. It was surprising to look at how the Broncos lined up with the rest of the teams in the league. The hire of Sean Payton for $18 million per season as the newest head coach for the upcoming 2023 season is a new found spark of the dying flame that is my hope for the future of the Denver Broncos. I am interested to see what the return of Vance Joseph will bring to the team, as well as Joe Lombardi in charge of the offense. Well we all know the saying, so lets ride.&nbsp;</p>
-<p><br>
-</p>
+<p>Naturally, Broncos fans have a deep burning hatred for the Kansas City Chiefs that runs through our bloodstream. With that being said, it is utterly painful to see the visuals of the absolute downfall of my favorite football team. It doesn’t take a wild guess to see that this huge drop-off had something to do with the painful loss of Peyton Manning after we won the 2015 Superbowl.</p>
+<p>After investigating multiple curiosities on the awful past performances of my favorite, I was slightly surprised to find out I was wrong when I had originally thought that this past season had to be the “historically worst” season for the franchise. It was surprising to look at how the Broncos lined up with the rest of the teams in the league. The hire of Sean Payton for $18 million per season as the newest head coach for the upcoming 2023 season is a new found spark of the dying flame that is my hope for the future of the Denver Broncos. I am interested to see what the return of Vance Joseph will bring to the team, as well as Joe Lombardi in charge of the offense. Well we all know the saying, so lets ride.</p>
 
 
 
