@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Emma Luci">
+<meta name="dcterms.date" content="2022-04-16">
 
-<title>Emma Luci's Blog – index</title>
+<title>Emma Luci’s Blog - Are the Denver Broncos the worst offensive-scoring team in the NFL?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -162,7 +164,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Are the Denver Broncos the worst offensive-scoring team in the NFL?</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emma Luci </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 16, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -171,351 +201,175 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+
+<p>Denver Broncos fans are already looking forward to the 2023 season. Dedicated fans were caught blindly optimistic after the five-year contract binding Russell Wilson to the 2021 team last march was able to fill the team’s quarterback position. Yet, after signing Wilson under a&nbsp; hefty $245 million, it seems there aren’t any easy solutions for the franchise following his rocky start.&nbsp;&nbsp;</p>
+<p>The recent addition of head coach Sean Payton is certain to stir up a new found hope once again in the city of Denver and for fans across the country. Though the off season is the perfect time to project the future for the franchise, it is also the most important time to reflect on the past dreadful seasons. Not only did the team struggle tremendously last season, but they had reportedly the worst-scoring offense, averaging at just 16.9 points for each game they played. The injury of back left tackle Garret Boles left a huge dent in their offensive line. Denver was alos one of the worst sack rate teams in the NFL this last season ranking at 30th overall among teams. Many fans pointed fingers at Russell Wilson, as he was ranked 25th statistically out of 32 quarterbacks with at least 300 drop backs and a completion percentage that was surprisingly above the anticipated -1.1 percent. The broncos have been unsuccessful with filling the quarterback position comfortably since the loss of Peyton Manning after the team’s Superbowl winning 2015 season.&nbsp;</p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.3.0      ✔ stringr 1.5.0 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbump)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggalt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Registered S3 methods overwritten by 'ggalt':
-  method                  from   
-  grid.draw.absoluteGrob  ggplot2
-  grobHeight.absoluteGrob ggplot2
-  grobWidth.absoluteGrob  ggplot2
-  grobX.absoluteGrob      ggplot2
-  grobY.absoluteGrob      ggplot2</code></pre>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scoring22 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring22.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2022</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>scoring21 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring21.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2021</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>scoring20 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring20.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2020</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>scoring19 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring19.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2019</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>scoring18 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring18.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2018</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>scoring17 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring17.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2017</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 33 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>scoring16 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring16.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2016</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>scoring15 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring15.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2015</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>scoring14 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring14.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2014</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>scoring13 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring13.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2013</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>scoring12 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring12.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2012</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 32 Columns: 28
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(1): Tm dbl (27): Rk, G, PF, TotalYds, Ply, Y/P, TO, FL, 1stD...10, Cmp,
-PassingAtt,...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `1stD` -&gt; `1stD...10`
-• `1stD` -&gt; `1stD...17`</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>scoring <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(scoring22, scoring21, scoring20, scoring19, scoring18, scoring17, scoring16, scoring15, scoring14, scoring13, scoring12) <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Tm <span class="sc">!=</span> <span class="st">"Avg Team"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#worst 50 scoring teams over last decade in bar chart</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>worst50 <span class="ot">&lt;-</span> scoring <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">50</span>, <span class="at">wt=</span> <span class="sc">-</span>PF) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(PF))</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>worstbroncos<span class="ot">&lt;-</span>worst50 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span><span class="st">"Denver Broncos"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bar chart of worst 50 scoring teams over last decade</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>worst50,</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF),</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"light grey"</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span> </span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>worstbroncos,</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF),</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"#FB4F14"</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Are the Broncos the worst offensive scoring team?"</span>, </span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Denver thought this could be the return of the Mile High Magic"</span>,</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">""</span>, </span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Points Scored"</span>) <span class="sc">+</span> </span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbump)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggalt)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>scoring22 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring22.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2022</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>scoring21 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring21.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2021</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>scoring20 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring20.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2020</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>scoring19 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring19.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2019</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>scoring18 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring18.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2018</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>scoring17 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring17.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2017</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>scoring16 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring16.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2016</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>scoring15 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring15.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2015</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>scoring14 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring14.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2014</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>scoring13 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring13.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2013</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>scoring12 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"teamscoring12.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Tm =</span> <span class="fu">case_when</span>(Tm <span class="sc">==</span> <span class="st">"Oakland Raiders"</span> <span class="sc">~</span> <span class="st">"Las Vegas Raiders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Redskins"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, Tm <span class="sc">==</span> <span class="st">"Washington Football Team"</span> <span class="sc">~</span> <span class="st">"Washington Commanders"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> Tm)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="dv">2012</span>, <span class="at">TeamSeason =</span> <span class="fu">paste</span>(Tm, Season))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>scoring <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(scoring22, scoring21, scoring20, scoring19, scoring18, scoring17, scoring16, scoring15, scoring14, scoring13, scoring12) <span class="sc">%&gt;%</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Tm <span class="sc">!=</span> <span class="st">"Avg Team"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#worst 50 scoring teams over last decade in bar chart</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>worst50 <span class="ot">&lt;-</span> scoring <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">50</span>, <span class="at">wt=</span> <span class="sc">-</span>PF) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(PF))</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>worstbroncos<span class="ot">&lt;-</span>worst50 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span><span class="st">"Denver Broncos"</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">#bar chart of worst 50 scoring teams over last decade</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>worst50,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF),</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"light grey"</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span> </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>worstbroncos,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>     <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(TeamSeason, PF), <span class="at">weight=</span>PF),</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"#FB4F14"</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Are the Broncos the worst offensive scoring team?"</span>, </span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Denver thought this could be the return of the Mile High Magic"</span>,</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">""</span>, </span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Points Scored"</span>) <span class="sc">+</span> </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>The Denver Broncos have not had the best luck over the last couple of years when it comes to winning games, or with performance quality. But as a dedicated fan for as long as I can remember, it interested me to look at exact numbers to prove some of these interesting rumors and questions regarding the team’s success to be revealed as true or not. The main thing I wanted to look at overall, was the offensive tragedy of the team over the last couple of seasons. To see where the Broncos have stood in comparison to other teams, I collected information of the 50 worst-scoring NFL teams over the last decade.&nbsp;</p>
+<p><br>
+</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2 beeswarm chart</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>AFC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Denver Broncos"</span>, <span class="st">"Kansas City Chiefs"</span>, <span class="st">"Las Vegas Raiders"</span>,<span class="st">"Cincinatti Bengals"</span>,<span class="st">"Buffalo Bills"</span>, <span class="st">"New England Patriots"</span>,<span class="st">"New York Jets"</span>,<span class="st">"Jacksonville Jaguars"</span>,<span class="st">"Pittsburgh Steelers"</span>,<span class="st">"Cleveland Browns"</span>,<span class="st">"Miami Dolphins"</span>, <span class="st">"Baltimore Ravens"</span>, <span class="st">"Indianapolis Colts"</span>,<span class="st">"Houston Texans"</span>,<span class="st">"Tennessee Titans"</span>)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>AFCTeams <span class="ot">&lt;-</span> scoring <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm <span class="sc">%in%</span> AFC)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>broncos22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Denver Broncos"</span>)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>chiefs22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Kansas City Chiefs"</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>raiders22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Las Vegas Raiders"</span>)</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>bengals22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Cincinatti Bengals"</span>)</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>billss22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Buffalo Bills"</span>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>patriotss22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"New England Patriots"</span>)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>jets22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"New York Jets"</span>)</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>jaguars22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Jacksonville Jaguars"</span>)</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>steelers22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Pittsburgh Steelers"</span>)</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>browns22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Cleveland Browns"</span>)</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>dolphins22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Miami Dolphins"</span>)</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>ravens22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Baltimore Ravens"</span>)</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>colts22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Indianapolis Colts"</span>)</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>texans22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Houston Texans"</span>)</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>titans22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Tennessee Titans"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#beeswarm of den v kc </span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data=</span>AFCTeams, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">color=</span><span class="st">"grey"</span>) <span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data=</span>broncos22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">color=</span><span class="st">"#FB4F14"</span>)<span class="sc">+</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data=</span>chiefs22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">color=</span><span class="st">"#E31837"</span>)<span class="sc">+</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_encircle</span>(<span class="at">data=</span>broncos22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">s_shape=</span><span class="dv">0</span>, <span class="at">expand=</span><span class="dv">0</span>, <span class="at">colour=</span><span class="st">"black"</span>)<span class="sc">+</span> </span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_encircle</span>(<span class="at">data=</span>chiefs22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">s_shape=</span><span class="dv">0</span>, <span class="at">expand=</span><span class="dv">0</span>, <span class="at">colour=</span><span class="st">"black"</span>)<span class="sc">+</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Is Denver the worst scoring team in past 10 years of NFL?"</span>, </span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Denver Broncos fans thought things would get better over time"</span>,</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Percent of drives that ended in a score"</span>, </span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bumpchart of kc and den</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bump</span>(<span class="at">data=</span>scoring, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>Rk, <span class="at">color=</span>Tm)) <span class="sc">+</span> </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>scoring, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>Rk, <span class="at">color=</span>Tm), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"How do the Broncos compare to the Chiefs?"</span>, </span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The loss of Peyton Manning caused a hit to the QB situation in Denver"</span>,</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">""</span>, </span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Ranking"</span>) <span class="sc">+</span> </span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D3D3D3"</span>,<span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>,<span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#FB4F14"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#E31837"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>)) <span class="sc">+</span></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">2012</span>,<span class="dv">2014</span>,<span class="dv">2016</span>,<span class="dv">2018</span>,<span class="dv">2020</span>,<span class="dv">2022</span>)) <span class="sc">+</span> </span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,<span class="dv">28</span>,<span class="dv">29</span>,<span class="dv">30</span>,<span class="dv">31</span>,<span class="dv">32</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2 beeswarm chart</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>AFC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Denver Broncos"</span>, <span class="st">"Kansas City Chiefs"</span>, <span class="st">"Las Vegas Raiders"</span>,<span class="st">"Cincinatti Bengals"</span>,<span class="st">"Buffalo Bills"</span>, <span class="st">"New England Patriots"</span>,<span class="st">"New York Jets"</span>,<span class="st">"Jacksonville Jaguars"</span>,<span class="st">"Pittsburgh Steelers"</span>,<span class="st">"Cleveland Browns"</span>,<span class="st">"Miami Dolphins"</span>, <span class="st">"Baltimore Ravens"</span>, <span class="st">"Indianapolis Colts"</span>,<span class="st">"Houston Texans"</span>,<span class="st">"Tennessee Titans"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>AFCTeams <span class="ot">&lt;-</span> scoring <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm <span class="sc">%in%</span> AFC)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>broncos22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Denver Broncos"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>chiefs22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Kansas City Chiefs"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>raiders22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Las Vegas Raiders"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>bengals22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Cincinatti Bengals"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>billss22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Buffalo Bills"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>patriotss22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"New England Patriots"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>jets22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"New York Jets"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>jaguars22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Jacksonville Jaguars"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>steelers22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Pittsburgh Steelers"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>browns22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Cleveland Browns"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>dolphins22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Miami Dolphins"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ravens22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Baltimore Ravens"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>colts22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Indianapolis Colts"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>texans22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Houston Texans"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>titans22 <span class="ot">&lt;-</span> scoring22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Tm<span class="sc">==</span> <span class="st">"Tennessee Titans"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#beeswarm of den v kc </span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data=</span>AFCTeams, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">color=</span><span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data=</span>broncos22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">color=</span><span class="st">"#FB4F14"</span>)<span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data=</span>chiefs22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">color=</span><span class="st">"#E31837"</span>)<span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_encircle</span>(<span class="at">data=</span>broncos22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">s_shape=</span><span class="dv">0</span>, <span class="at">expand=</span><span class="dv">0</span>, <span class="at">colour=</span><span class="st">"black"</span>)<span class="sc">+</span> </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_encircle</span>(<span class="at">data=</span>chiefs22, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Sc%</span><span class="st">`</span>, <span class="at">y=</span>Tm), <span class="at">s_shape=</span><span class="dv">0</span>, <span class="at">expand=</span><span class="dv">0</span>, <span class="at">colour=</span><span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"How does Denver compare to the rest of the league?"</span>, </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Denver Broncos fans thought things would get better with time..."</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Percent of drives that ended in a score"</span>, </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<ul>
-<li>geom_point(data=newrankings, aes(x=Week, y=Rank, color=Team), size = 4) +<br>
-geom_text(data = newrankings %&gt;% filter(Week == min(Week)), aes(x = Week - .2, y=Rank, label = ShortTeam), size = 3, hjust = 1) + geom_text(data = newrankings %&gt;% filter(Week == max(Week)), aes(x = Week + .2, y=Rank, label = ShortTeam), size = 3, hjust = 0) + labs(title=“Was COVID college football boring?”, subtitle=“There was no drama at the top. None. So, yes?”, y= “Rank”, x = “Week”) + theme_minimal() + theme( legend.position = “none”, panel.grid.major = element_blank(), plot.title = element_text(size = 16, face = “bold”), axis.title = element_text(size = 8), plot.subtitle = element_text(size=10), panel.grid.minor = element_blank() ) + scale_color_manual(values = c(“#9E1B32”,“#E00122”, “#F56600”, “#0021A5”, “#BA0C2F”, “#F1BE48”,“#C99700”, “#bb0000”, “#841617”, “#500000”)) + scale_x_continuous(breaks=c(13,14,15,16,17)) + scale_y_reverse(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15))</li>
-</ul>
+<p>I wondered how the Broncos would align when compared to the rest of the league when being ranked by conference, so I looked at the scoring percentages of all of the AFC teams in the NFL. I had heard and seen a lot of opinions on Denver after their terrifying season opener game, and it made me want to know if my team was really falling to pieces.&nbsp;</p>
+<p><br>
+</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bumpchart of kc and den</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bump</span>(<span class="at">data=</span>scoring, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>Rk, <span class="at">color=</span>Tm)) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>scoring, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>Rk, <span class="at">color=</span>Tm), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"How do the Broncos compare to the Chiefs?"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The loss of Peyton Manning caused a hit to the QB situation in Denver"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Pro Football Reference | By Emma Luci"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">""</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Ranking"</span>) <span class="sc">+</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D3D3D3"</span>,<span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>,<span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#FB4F14"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#E31837"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>, <span class="st">"#D3D3D3"</span>)) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">2012</span>,<span class="dv">2014</span>,<span class="dv">2016</span>,<span class="dv">2018</span>,<span class="dv">2020</span>,<span class="dv">2022</span>)) <span class="sc">+</span> </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,<span class="dv">28</span>,<span class="dv">29</span>,<span class="dv">30</span>,<span class="dv">31</span>,<span class="dv">32</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As a Broncos fan, there is and always has been a deep burning hatred for the Kansas City Chiefs that runs through my bloodstream. With that being said, it utterly pains me to see the visual of the absolute downfall of my favorite football team. I assumed this huge drop-off had something to do with the painful loss of Peyton Manning after we won the 2015 Superbowl.&nbsp;</p>
+<p>After investigating my curiosity on the awful past performances of my favorite team of all time, I was slightly surprised to find out I was wrong when I had originally thought that this past season had to be the “historically worst” season for the franchise. It was surprising to look at how the Broncos lined up with the rest of the teams in the league. The hire of Sean Payton for $18 million per season as the newest head coach for the upcoming 2023 season is a new found spark of the dying flame that is my hope for the future of the Denver Broncos. I am interested to see what the return of Vance Joseph will bring to the team, as well as Joe Lombardi in charge of the offense. Well we all know the saying, so lets ride.&nbsp;</p>
+<p><br>
+</p>
 
 
 
